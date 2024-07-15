@@ -7,16 +7,16 @@ class Trainner {
     @PrimaryGeneratedColumn('increment')
     id: number = 0
 
+    @Column('int', { nullable: false })
+    timeOfTrainner: number = 0
+
     @Column('varchar', {length:100, nullable: false})
     location: string = ''
 
-    @Column('number', { nullable: false })
+    @Column('int', { nullable: false })
     km: number = 0
 
-    @Column('number', { nullable: false })
-    time: number = 0
-
-    @Column('number', { nullable: false })
+    @Column('int', { nullable: false })
     intensity: number = 0
 
     @ManyToOne(()=> User, user => user.trainners)
