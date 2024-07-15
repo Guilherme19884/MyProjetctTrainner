@@ -1,0 +1,9 @@
+interface ITrainner {
+
+    id?: number
+    location: string
+    date: Date
+    km: number
+    time: number
+    intensity: number
+}
