@@ -5,8 +5,8 @@ import { AppDataSource } from "../../database/data-source"
 const userRepository = AppDataSource.getRepository(User)
 
 
-const getUsers = (): Promise<IUser[]> =>{
-    return userRepository.find()
+const getUsers = async (): Promise<User[]> =>{
+    return await userRepository.find()
 }
 
 const postUsers = async (user: IUser): Promise <void> =>{
