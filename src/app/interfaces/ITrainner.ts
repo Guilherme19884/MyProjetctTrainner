@@ -1,3 +1,5 @@
+import IUser from "./IUser"
+
 interface ITrainner {
 
     id?: number
@@ -6,4 +8,7 @@ interface ITrainner {
     km: number
     time: number
     intensity: number
+    user: IUser 
 }
+
+export default ITrainner

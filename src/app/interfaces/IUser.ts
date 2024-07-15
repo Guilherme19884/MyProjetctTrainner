@@ -1,9 +1,11 @@
-interface IUSer{
+import ITrainner from "./ITrainner";
 
-    id?: number
-    name: string
-    email: string
-    password: string
+interface IUser {
+    id?: number;
+    name: string;
+    email: string;
+    password: string;
+    trainners?: ITrainner[]; // Adiciona a referência aos treinos
 }
 
-export default IUSer
+export default IUser;

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn,  } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm"
+import User from "./User"
 
 @Entity('trainners')
 class Trainner {
@@ -18,6 +19,9 @@ class Trainner {
     @Column('number', { nullable: false })
     intensity: number = 0
 
+    @ManyToOne(()=> User, user => user.trainners)
+    @JoinColumn({ name: 'user_id' })
+    user: User | undefined
 }
 
 export default Trainner

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import Trainner from "./Trainner";
 
 @Entity('users')
 class User {
@@ -15,7 +16,8 @@ class User {
     @Column('varchar', {length:8, nullable: false})
     password: string = ''
 
-
+    @OneToMany(() => Trainner, trainner => trainner.user)
+    trainners: Trainner[] | undefined
 }
 
 export default User
