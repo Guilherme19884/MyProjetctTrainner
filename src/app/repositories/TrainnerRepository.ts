@@ -19,11 +19,11 @@ export const postTrainner = async (trainner: ITrainner): Promise<void> => {
 
     // Crie um novo treino e associe ao usuário
     const newTrainner = new Trainner();
+    newTrainner.date = new Date();
     newTrainner.timeOfTrainner = trainner.time;
     newTrainner.location = trainner.location;
     newTrainner.km = trainner.km;
     newTrainner.intensity = trainner.intensity;
-    //newTrainner.date = trainner.date;
     newTrainner.user = user;
 
     // Salve o treino no banco de dados

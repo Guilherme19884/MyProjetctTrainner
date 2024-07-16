@@ -3,8 +3,8 @@ import IUser from "./IUser"
 interface ITrainner {
 
     id?: number
+    date: Date
     location: string
-    //date: Date
     km: number
     time: number
     intensity: number

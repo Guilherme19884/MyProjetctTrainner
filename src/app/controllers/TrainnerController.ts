@@ -15,9 +15,9 @@ trainnerRouter.get('/', async (req: Request, res: Response): Promise<Response | 
 
 trainnerRouter.post('/', async (req: Request, res: Response): Promise<Response | undefined> => {
     try {
-        const { location, km, time, intensity, userId } = req.body;
+        const { date, location, km, time, intensity, userId } = req.body;
 
-        const trainner: ITrainner = { location, km, time, intensity, user: userId };;
+        const trainner: ITrainner = { date: new Date(date), location, km, time, intensity, user: userId };;
 
         await postTrainner(trainner);
 
