@@ -4,11 +4,11 @@ interface ITrainner {
 
     id?: number
     location: string
-    date: Date
+    //date: Date
     km: number
     time: number
     intensity: number
-    user: IUser 
+    user: number
 }
 
 export default ITrainner

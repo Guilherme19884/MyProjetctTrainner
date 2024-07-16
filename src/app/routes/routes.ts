@@ -1,6 +1,6 @@
 import { Router } from  'express'
 import  userRouter from '../controllers/UserController'
-import  trainnerRouter from '../controllers/UserController'
+import  trainnerRouter from '../controllers/TrainnerController'
 import { LoginController } from '../controllers/loginController'
 
 const routers = Router()

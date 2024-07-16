@@ -7,6 +7,9 @@ class Trainner {
     @PrimaryGeneratedColumn('increment')
     id: number = 0
 
+    // @Column('date', { nullable: false })
+    // date: Date | undefined
+
     @Column('int', { nullable: false })
     timeOfTrainner: number = 0
 
