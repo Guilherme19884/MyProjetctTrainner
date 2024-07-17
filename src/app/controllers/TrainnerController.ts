@@ -44,21 +44,21 @@ trainnerRouter.put('/:id', async (req: Request, res: Response): Promise<Response
     try {
         const id = Number(req.params.id);
         if (isNaN(id)) {
-            return res.status(400).json({ error: 'Invalid ID format' });
+            return res.status(400).json({ error: 'Invalid ID format' })
         }
 
-        const {date, location, km, intensity}: ITrainner = req.body;
+        const {date, location, km, intensity}: ITrainner = req.body
 
         // Atualize o treinador
-        const updatedTrainner = await trainnerRepository.updateTrainner(id, {date, location, km, intensity});
+        const updatedTrainner = await trainnerRepository.updateTrainner(id, {date, location, km, intensity})
         if (!updatedTrainner) {
-            return res.status(404).json({ error: 'Usuário não encontrado!' });
+            return res.status(404).json({ error: 'Usuário não encontrado!' })
         }
 
-        return res.status(200).json(updatedTrainner);
+        return res.status(200).json(updatedTrainner)
     } catch (error) {
-        console.error('Error updating trainner:', error); // Log do erro para depuração
-        return res.status(500).json({ error: 'Erro interno!' });
+        console.error('Error updating trainner:', error) // Log do erro para depuração
+        return res.status(500).json({ error: 'Erro interno!' })
     }
-});
+})
 export default trainnerRouter

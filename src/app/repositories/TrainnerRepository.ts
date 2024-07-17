@@ -35,18 +35,18 @@ export const getTrainnerById = async (id: number): Promise<Trainner | null> => {
 }
 
 export const updateTrainner = async (id: number, trainnerData: Partial<Trainner>): Promise<Trainner | null> => {
-    const trainner = await trainnerRepository.findOneBy({ id });
-    if (!trainner) return null;
+    const trainner = await trainnerRepository.findOneBy({ id })
+    if (!trainner) return null
 
     // Atualize os campos do treinador
-    if (trainnerData.timeOfTrainner !== undefined) trainner.timeOfTrainner = trainnerData.timeOfTrainner;
-    if (trainnerData.location !== undefined) trainner.location = trainnerData.location;
-    if (trainnerData.km !== undefined) trainner.km = trainnerData.km;
-    if (trainnerData.intensity !== undefined) trainner.intensity = trainnerData.intensity;
-    if (trainnerData.date !== undefined) trainner.date = new Date(trainnerData.date);
+    if (trainnerData.timeOfTrainner !== undefined) trainner.timeOfTrainner = trainnerData.timeOfTrainner
+    if (trainnerData.location !== undefined) trainner.location = trainnerData.location
+    if (trainnerData.km !== undefined) trainner.km = trainnerData.km
+    if (trainnerData.intensity !== undefined) trainner.intensity = trainnerData.intensity
+    if (trainnerData.date !== undefined) trainner.date = new Date(trainnerData.date)
 
     // Salve as alterações no banco de dados
-    return await trainnerRepository.save(trainner);
-};
+    return await trainnerRepository.save(trainner)
+}
 
 export {trainnerRepository}
