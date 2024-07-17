@@ -38,7 +38,7 @@ export const updateTrainner = async (id: number, trainnerData: Partial<Trainner>
     const trainner = await trainnerRepository.findOneBy({ id })
     if (!trainner) return null
 
-    // Atualize os campos do treinador
+    // Atualize os campos do treina
     if (trainnerData.timeOfTrainner !== undefined) trainner.timeOfTrainner = trainnerData.timeOfTrainner
     if (trainnerData.location !== undefined) trainner.location = trainnerData.location
     if (trainnerData.km !== undefined) trainner.km = trainnerData.km
