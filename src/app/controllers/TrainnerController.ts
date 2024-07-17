@@ -15,15 +15,15 @@ trainnerRouter.get('/', async (req: Request, res: Response): Promise<Response | 
 
 trainnerRouter.post('/', async (req: Request, res: Response): Promise<Response | undefined> => {
     try {
-        const { date, location, km, time, intensity, userId } = req.body;
+        const { date, location, km, time, intensity, userId } = req.body
 
-        const trainner: ITrainner = { date: new Date(date), location, km, time, intensity, user: userId };;
+        const trainner: ITrainner = { date: new Date(date), location, km, time, intensity, user: userId }
 
-        await postTrainner(trainner);
+        await postTrainner(trainner)
 
-        return res.status(201).json({ message: 'Trainner created successfully' });
+        return res.status(201).json({ message: 'Trainner created successfully' })
     } catch (error) {
-        return res.status(500).json({ error: 'Internal Server Error' });
+        return res.status(500).json({ error: 'Internal Server Error' })
     }
 });
 export default trainnerRouter
