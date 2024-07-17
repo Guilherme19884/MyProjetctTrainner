@@ -37,7 +37,7 @@ userRouter.get('/:id', async (req: Request, res: Response): Promise<Response> =>
 
 userRouter.put('/:id', async(req: Request, res: Response): Promise<Response> =>{
     try{
-        const  { name, email, password }: IUser = req.body;const user: IUser = req.body
+        const  { name, email, password }: IUser = req.body;
         const updatedUser = await UserRepository.updateUser(Number(req.params.id), { name, email, password })
         if(!updatedUser){
             return res.status(404).json({error: 'Usuário não encontrado!'})
