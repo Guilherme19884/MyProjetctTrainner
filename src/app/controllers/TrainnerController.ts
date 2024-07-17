@@ -52,13 +52,28 @@ trainnerRouter.put('/:id', async (req: Request, res: Response): Promise<Response
         // Atualize o treinador
         const updatedTrainner = await trainnerRepository.updateTrainner(id, {date, location, km, intensity})
         if (!updatedTrainner) {
-            return res.status(404).json({ error: 'Usuário não encontrado!' })
+            return res.status(404).json({ error: 'Treino não encontrado!' })
         }
 
         return res.status(200).json(updatedTrainner)
     } catch (error) {
         console.error('Error updating trainner:', error) // Log do erro para depuração
         return res.status(500).json({ error: 'Erro interno!' })
+    }
+})
+
+trainnerRouter.delete('/:id', async(req: Request, res: Response): Promise<Response> =>{
+    try {
+        const id = Number(req.params.id)
+        if(!id){
+            return res.status(400).json({ error: 'Treino não encontrado'})
+        }
+        const deleted = await trainnerRepository.deleteTrainner(id)
+        if (!deleted) return res.status(404).json({ error: 'User not found' })
+        return res.status(204).json()
+    } catch (error) {
+        console.error('Error updating trainner:', error) // Log do erro para depuração
+            return res.status(500).json({ error: 'Erro interno!' })
     }
 })
 export default trainnerRouter

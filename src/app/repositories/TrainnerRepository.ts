@@ -38,7 +38,7 @@ export const updateTrainner = async (id: number, trainnerData: Partial<Trainner>
     const trainner = await trainnerRepository.findOneBy({ id })
     if (!trainner) return null
 
-    // Atualize os campos do treina
+    // Atualize os campos do treino
     if (trainnerData.timeOfTrainner !== undefined) trainner.timeOfTrainner = trainnerData.timeOfTrainner
     if (trainnerData.location !== undefined) trainner.location = trainnerData.location
     if (trainnerData.km !== undefined) trainner.km = trainnerData.km
@@ -47,6 +47,11 @@ export const updateTrainner = async (id: number, trainnerData: Partial<Trainner>
 
     // Salve as alterações no banco de dados
     return await trainnerRepository.save(trainner)
+}
+
+export const deleteTrainner = async(id: number): Promise<Boolean> =>{
+    const result = await trainnerRepository.delete(id)
+    return result.affected !== 0
 }
 
 export {trainnerRepository}
