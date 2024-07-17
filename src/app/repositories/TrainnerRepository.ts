@@ -30,4 +30,8 @@ export const postTrainner = async (trainner: ITrainner): Promise<void> => {
     await trainnerRepository.save(newTrainner)
 }
 
-export default trainnerRepository;
+export const getTrainnerById = async (id: number): Promise<Trainner | null> => {
+    return await trainnerRepository.findOneBy({ id })
+}
+
+export {trainnerRepository}
