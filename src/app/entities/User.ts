@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import Trainner from "./Trainner";
+import { Evaluation } from "./Evaluation";
 
 @Entity('users')
 class User {
@@ -18,6 +19,9 @@ class User {
 
     @OneToMany(() => Trainner, trainner => trainner.user)
     trainners: Trainner[] | undefined
+
+    @OneToMany(() => Evaluation, evaluation => evaluation.user)
+    evaluations: Evaluation[] | undefined
 }
 
 export default User
