@@ -17,6 +17,12 @@ class Evaluation {
     @Column('int', { nullable:false })
     private distanceOfTestInMeters: number = 0
 
+    @Column('int')
+    private vo2max: number = 0
+
+    @Column('int')
+    private runningRhythm: number = 0
+
     @Column('enum', { enum: Modalidades, nullable: false })
     modalidade: Modalidades = Modalidades.CORRIDA || Modalidades.CICLISMO || Modalidades.DUATHLON
 
@@ -31,10 +37,16 @@ class Evaluation {
 
     //Realizar avaliação de corrida (Teste de Cooper) Importante enfatizar o tempo de 12 minutos, local plano.
     public calculateVo2Max(): void {
-        const Vo2max = this.distanceOfTestInMeters - 504.9 / 44.73
+        const Vo2max = (this.distanceOfTestInMeters - 504.9) / 44.73
+        this.vo2max = Vo2max
     }
 
     //Estimativa de Ritmo de corrida baseado no vo2máx
+    public estimativeMax(): void {
+        const speed = this.vo2max / 3.5 
+        const rhythm = 60 / speed
+        this.runningRhythm = rhythm
+    }
 
     //Estimativa de corrida a 80% do vo2máx
 
