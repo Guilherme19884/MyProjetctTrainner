@@ -3,7 +3,7 @@ import Modalidades from "./Modalidades"
 import User from "./User"
 
 @Entity('evaluations')
-class Evaluation {
+export class Evaluation {
 
     @PrimaryGeneratedColumn('increment')
     private id: number = 0
@@ -55,4 +55,3 @@ class Evaluation {
 
 }
 
-export default Evaluation
