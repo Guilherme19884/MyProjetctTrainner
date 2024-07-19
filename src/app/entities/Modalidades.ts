@@ -4,5 +4,3 @@ export enum Modalidades{
     CICLISMO = 'Ciclismo',
     DUATHLON = 'Duathlon'
 }
-
-export default Modalidades
