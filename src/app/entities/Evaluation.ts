@@ -48,8 +48,12 @@ export class Evaluation {
         this.runningRhythm = rhythm
     }
 
-    //Estimativa de corrida a 80% do vo2máx
-
+    //Estimativa de corrida a 80% do vo2máx onde o resultado é minuto por km 
+    public estimative80(): number{
+        const speed = (this.vo2max / 3.5) * .80 
+        const result = 60 / speed
+       return result
+    }
 
     //Realizar avaliação de ciclismo
 
