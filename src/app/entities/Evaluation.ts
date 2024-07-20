@@ -23,6 +23,9 @@ export class Evaluation {
     @Column('int')
     private runningRhythm: number = 0
 
+    @Column('int')
+    private distanceOfTestInKm: number = 5
+
     @Column('enum', { enum: Modalidades, nullable: false })
     modalidade: Modalidades = Modalidades.CORRIDA || Modalidades.CICLISMO || Modalidades.DUATHLON
 
@@ -55,7 +58,15 @@ export class Evaluation {
        return result
     }
 
-    //Realizar avaliação de ciclismo
+    //Realizar avaliação de ciclismo Teste para 5km no plano 
+    public calculateVo2maxCiclistas(timeInMinutes: number): number {
+        if (timeInMinutes <= 0) {
+            throw new Error("Time must be greater than zero");
+        }
+        const vo2max = (483 / timeInMinutes) + 3.5
+        this.vo2max = vo2max
+        return this.vo2max
+    }
 
 }
 
