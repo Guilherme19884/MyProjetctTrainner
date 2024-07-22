@@ -39,29 +39,29 @@ export class Evaluation {
     }
 
     //Realizar avaliação de corrida (Teste de Cooper) Importante enfatizar o tempo de 12 minutos, local plano.
-    public calculateVo2Max(): void {
+    public calculateVo2MaxRunners(): void {
         const Vo2max = (this.distanceOfTestInMeters - 504.9) / 44.73
         this.vo2max = Vo2max
     }
 
     //Estimativa de Ritmo de corrida baseado no vo2máx
-    public estimativeMax(): void {
+    public estimativeMaxRunners(): void {
         const speed = this.vo2max / 3.5 
         const rhythm = 60 / speed
         this.runningRhythm = rhythm
     }
 
     //Estimativa de corrida a 80% do vo2máx onde o resultado é minuto por km 
-    public estimative80(): number{
+    public estimative80Runners(): number{
         const speed = (this.vo2max / 3.5) * .80 
         const result = 60 / speed
        return result
     }
 
     //Realizar avaliação de ciclismo Teste para 5km no plano 
-    public calculateVo2maxCiclistas(timeInMinutes: number): number {
+    public calculateVo2maxCyclists(timeInMinutes: number): number {
         if (timeInMinutes <= 0) {
-            throw new Error("Time must be greater than zero");
+            throw new Error("Time must be greater than zero")
         }
         const vo2max = (483 / timeInMinutes) + 3.5
         this.vo2max = vo2max
