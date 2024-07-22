@@ -8,6 +8,7 @@ const loginController = new LoginController()
 
 routers.use('/users', userRouter)
 routers.use('/trainners', trainnerRouter)
+routers.use('/evaluations' evaluationRouter)
 
 routers.post('/login', loginController.login)
 
