@@ -1,9 +1,9 @@
 import request from 'supertest';
 import express, { Application } from 'express';
-import { AppDataSource } from '../../database/data-source';
-import routers from '../routes/routes';
-import UserRepository from '../repositories/UserRepository';
-import User from '../entities/User';
+import { AppDataSource } from '../../src/database/data-source';
+import routers from '../../src/app/routes/routes';
+import UserRepository from '../../src/app/repositories/UserRepository';
+import User from '../../src/app/entities/User';
 
 let app: Application;
 
