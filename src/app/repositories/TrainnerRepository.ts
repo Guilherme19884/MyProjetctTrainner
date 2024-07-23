@@ -8,7 +8,7 @@ const userRepository = AppDataSource.getRepository(User)
 
 export const getTrainners = async (): Promise<Trainner[]> => {
     return await trainnerRepository.find()
-};
+}
 
 export const postTrainner = async (trainner: ITrainner): Promise<void> => {
     // Encontre o usuário no banco de dados
