@@ -18,3 +18,4 @@ evaluationRouter.put('/:id',()=>{})
 //Deletar Avalaiação
 evaluationRouter.delete('/:id',()=>{})
 
+export default evaluationRouter
