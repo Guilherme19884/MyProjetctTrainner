@@ -9,19 +9,19 @@ export class Evaluation {
     private id: number = 0
 
     @Column('date', { nullable: false })
-    private date: Date | undefined
+     date: Date | undefined
 
     @Column('varchar', { length: 100, nullable:false })
-    private locationOfTest: string = ''
+    locationOfTest: string = ''
 
     @Column('int', { nullable:false })
-    private distanceOfTestInMeters: number = 0
+    distanceOfTestInMeters: number = 0
 
     @Column('int')
-    private vo2max: number = 0
+    vo2max: number = 0
 
     @Column('int')
-    private runningRhythm: number = 0
+    runningRhythm: number = 0
 
     @Column('int')
     private distanceOfTestInKm: number = 5
