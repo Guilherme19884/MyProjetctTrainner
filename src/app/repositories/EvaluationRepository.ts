@@ -22,7 +22,7 @@ export const postEvaluation = async (evaluationData: IEvaluation): Promise<void>
     const newEvaluation = new Evaluation()
     newEvaluation.date = evaluationData.date
     newEvaluation.locationOfTest = evaluationData.locationOfTest
-    newEvaluation.distanceOfTestInMeters = evaluationData.distanceOfTestInMeters
+    newEvaluation.distanceOfTestInMeters = evaluationData.distanceOfTestInMeters || 0
     newEvaluation.modalidade = evaluationData.modalidade
     newEvaluation.user = user
 

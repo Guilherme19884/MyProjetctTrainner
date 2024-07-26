@@ -6,9 +6,6 @@ export interface IEvaluation {
     date: Date
     locationOfTest: string
     distanceOfTestInMeters: number
-    vo2max?: number
-    runningRhythm?: number
-    distanceOfTestInKm: number
     modalidade: Modalidades
-    user: User
+    user: {id: number}
 }

@@ -5,7 +5,7 @@ export class AddTableEvaluation1721664332237 implements MigrationInterface {
         // Criação da tabela Evaluation
         await queryRunner.createTable(
             new Table({
-                name: "evaluation",
+                name: "evaluations",
                 columns: [
                     {
                         name: "id",

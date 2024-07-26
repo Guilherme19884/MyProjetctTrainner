@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express"
-import { getAllEvaluation } from "../repositories/EvaluationRepository"
+import { getAllEvaluation, postEvaluation } from "../repositories/EvaluationRepository"
+import { IEvaluation } from "../interfaces/IEvaluation"
 
 
 const evaluationRouter = Router()
@@ -18,7 +19,26 @@ evaluationRouter.get('/', async (req: Request, res: Response): Promise < Respons
 evaluationRouter.get('/:id',()=>{})
 
 //Inserir Avaliação
-evaluationRouter.post('/:id',()=>{})
+evaluationRouter.post('/', async (req: Request, res: Response): Promise<Response | undefined> => {
+    try {
+        const { date, locationOfTest, distanceOfTestInMeters, modalidade, userId } = req.body
+
+        const evaluation: IEvaluation = { 
+            date: new Date(date), 
+            locationOfTest, 
+            distanceOfTestInMeters, 
+            modalidade, 
+            user: { id: userId }
+        }
+
+        await postEvaluation(evaluation);
+
+        return res.status(201).json({ message: 'Evaluation created successfully' })
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Internal Server Error' })
+    }
+})
 
 //Atualizar Avaliação
 evaluationRouter.put('/:id',()=>{})
