@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express"
-import { getAllEvaluation, postEvaluation } from "../repositories/EvaluationRepository"
+import { evaluationRepository, getAllEvaluation, postEvaluation } from "../repositories/EvaluationRepository"
 import { IEvaluation } from "../interfaces/IEvaluation"
 
 
@@ -16,7 +16,18 @@ evaluationRouter.get('/', async (req: Request, res: Response): Promise < Respons
 })
 
 //getID
-evaluationRouter.get('/:id',()=>{})
+evaluationRouter.get('/:id', async(req: Request, res: Response): Promise<Response>=>{
+    try {
+        const id = Number(req.params.id)
+        const evaluation = await evaluationRepository.getEvaluationById(id)
+        if(!id){
+            return res.status(400).json({ error: 'Avaliação não encontrada'})
+        }
+        return res.status(200).json(evaluation)
+    } catch (error) {
+        return res.status(500).json({ error: 'Server internal error'})
+    }
+})
 
 //Inserir Avaliação
 evaluationRouter.post('/', async (req: Request, res: Response): Promise<Response | undefined> => {

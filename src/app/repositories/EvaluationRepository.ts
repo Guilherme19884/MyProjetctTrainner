@@ -4,7 +4,7 @@ import User from "../entities/User"
 import { IEvaluation } from "../interfaces/IEvaluation"
 
 
-const evaluationRepository = AppDataSource.getRepository(Evaluation)
+export const evaluationRepository = AppDataSource.getRepository(Evaluation)
 const userRepository = AppDataSource.getRepository(User)
 
 export const getAllEvaluation = async ():Promise < Evaluation[] > =>{
@@ -28,4 +28,8 @@ export const postEvaluation = async (evaluationData: IEvaluation): Promise<void>
 
     // Salve a avaliação no banco de dados
     await evaluationRepository.save(newEvaluation);
+}
+
+export const getEvaluationById = async (id: number): Promise<Evaluation | null> => {
+    return await evaluationRepository.findOneBy({ id })
 }

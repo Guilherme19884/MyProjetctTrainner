@@ -6,7 +6,7 @@ import User from "./User"
 export class Evaluation {
 
     @PrimaryGeneratedColumn('increment')
-    private id: number = 0
+    id: number = 0
 
     @Column('date', { nullable: false })
      date: Date | undefined
