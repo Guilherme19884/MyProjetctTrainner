@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express"
-import { evaluationRepository, getAllEvaluation, postEvaluation } from "../repositories/EvaluationRepository"
+import { getAllEvaluation, postEvaluation, getEvaluationById } from "../repositories/EvaluationRepository"
 import { IEvaluation } from "../interfaces/IEvaluation"
 
 
@@ -19,7 +19,7 @@ evaluationRouter.get('/', async (req: Request, res: Response): Promise < Respons
 evaluationRouter.get('/:id', async(req: Request, res: Response): Promise<Response>=>{
     try {
         const id = Number(req.params.id)
-        const evaluation = await evaluationRepository.getEvaluationById(id)
+        const evaluation = await getEvaluationById(id)
         if(!id){
             return res.status(400).json({ error: 'Avaliação não encontrada'})
         }
