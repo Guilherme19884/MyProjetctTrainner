@@ -33,3 +33,15 @@ export const postEvaluation = async (evaluationData: IEvaluation): Promise<void>
 export const getEvaluationById = async (id: number): Promise<Evaluation | null> => {
     return await evaluationRepository.findOneBy({ id })
 }
+
+export const updateEvaluation = async(id: number, evaluationData: Partial <Evaluation>): Promise<Evaluation | null> =>{
+    const evaluation = await evaluationRepository.findOneBy({ id })
+    if (!evaluation) return null
+
+    if (evaluationData.date !== undefined) evaluation.date = evaluationData.date
+    if (evaluationData.locationOfTest !== undefined) evaluation.locationOfTest = evaluationData.locationOfTest
+    if (evaluationData.distanceOfTestInMeters !== undefined) evaluation.distanceOfTestInMeters = evaluationData.distanceOfTestInMeters
+    if (evaluationData.modalidade !== undefined) evaluation.modalidade = evaluationData.modalidade
+
+    return await evaluationRepository.save(evaluation)
+}

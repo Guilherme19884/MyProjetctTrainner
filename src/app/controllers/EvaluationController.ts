@@ -52,7 +52,9 @@ evaluationRouter.post('/', async (req: Request, res: Response): Promise<Response
 })
 
 //Atualizar Avaliação
-evaluationRouter.put('/:id',()=>{})
+evaluationRouter.put('/:id', async(req: Request, res: Response): Promise <Response>=>{
+
+})
 
 //Deletar Avalaiação
 evaluationRouter.delete('/:id',()=>{})
