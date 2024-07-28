@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express"
-import { getAllEvaluation, postEvaluation, getEvaluationById, updateEvaluation } from "../repositories/EvaluationRepository"
+import { getAllEvaluation, postEvaluation, getEvaluationById, updateEvaluation, deleteEvaluation } from "../repositories/EvaluationRepository"
 import { IEvaluation } from "../interfaces/IEvaluation"
 
 
@@ -62,6 +62,19 @@ evaluationRouter.put('/:id', async(req: Request, res: Response): Promise <Respon
 })
 
 //Deletar Avaliação
-evaluationRouter.delete('/:id',()=>{})
+evaluationRouter.delete('/:id', async(req: Request, res: Response): Promise<Response> =>{
+    try {
+        const id = Number(req.params.id)
+        if(!id){
+            return res.status(400).json({ error: 'Avaliação não encontrado'})
+        }
+        const deleted = await deleteEvaluation(id)
+        if (!deleted) return res.status(404).json({ error: 'User not found' })
+        return res.status(204).json()
+    } catch (error) {
+        console.error('Error updating trainner:', error) // Log do erro para depuração
+            return res.status(500).json({ error: 'Erro interno!' })
+    }
+})
 
 export default evaluationRouter

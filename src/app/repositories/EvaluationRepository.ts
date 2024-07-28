@@ -47,7 +47,7 @@ export const updateEvaluation = async(id: number, evaluationData: Partial <Evalu
     return await evaluationRepository.save(evaluation)
 }
 
-export const deleteEvalution = async(id: number): Promise<Boolean> =>{
+export const deleteEvaluation = async(id: number): Promise<Boolean> =>{
     const result = await evaluationRepository.delete(id)
     return result.affected !== 0
 }
