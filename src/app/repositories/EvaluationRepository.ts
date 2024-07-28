@@ -1,3 +1,4 @@
+import e from "cors"
 import { AppDataSource } from "../../database/data-source"
 import { Evaluation } from "../entities/Evaluation"
 import User from "../entities/User"

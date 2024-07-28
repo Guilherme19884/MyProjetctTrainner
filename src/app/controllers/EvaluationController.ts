@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express"
-import { getAllEvaluation, postEvaluation, getEvaluationById } from "../repositories/EvaluationRepository"
+import { getAllEvaluation, postEvaluation, getEvaluationById, updateEvaluation } from "../repositories/EvaluationRepository"
 import { IEvaluation } from "../interfaces/IEvaluation"
 
 
@@ -53,10 +53,15 @@ evaluationRouter.post('/', async (req: Request, res: Response): Promise<Response
 
 //Atualizar Avaliação
 evaluationRouter.put('/:id', async(req: Request, res: Response): Promise <Response>=>{
-
+    const id = Number(req.params.id)
+    if(!id){return res.status(400).json({ error: 'Avalaiação não encontrada'})}
+    
+    const {date, locationOfTest, distanceOfTestInMeters, modalidade}: IEvaluation = req.body
+    const updatedEvaluation =  await updateEvaluation(id, { date, locationOfTest, distanceOfTestInMeters, modalidade })
+    return res.status(200).json(updatedEvaluation)
 })
 
-//Deletar Avalaiação
+//Deletar Avaliação
 evaluationRouter.delete('/:id',()=>{})
 
 export default evaluationRouter
