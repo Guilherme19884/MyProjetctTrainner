@@ -1,0 +1,18 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "MyProject Trainer",
+        "description": "Esse é um diário de treino onde o atleta irá anotar os dados do seu treino",
+        "contact": {
+            "email": "guilherme1984.araujo@gmail.com"
+        }
+    },
+    "version": "1.0.0",
+    "servers": [
+        {
+            "url": "http://localhost:3000/v1",
+            "description": "Api de teste"
+        }
+    ]
+  }
+  
