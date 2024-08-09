@@ -5,7 +5,8 @@ import { LoginController } from '../controllers/loginController'
 import evaluationRouter from '../controllers/EvaluationController'
 import swaggerUi from 'swagger-ui-express'
 import swaggerDocs from '../../swagger.json'
-import doc from '../../swagger'
+import swaggerDocument from '../../swagger-output.json'
+
 
 const routers = Router()
 const loginController = new LoginController()
@@ -16,6 +17,6 @@ routers.use('/evaluations', evaluationRouter)
 
 routers.post('/login', loginController.login)
 
-routers.use('/documentation', swaggerUi.serve, swaggerUi.setup( swaggerDocs ))
+routers.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 export default routers

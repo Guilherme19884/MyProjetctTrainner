@@ -2,43 +2,16 @@
     "swagger": "2.0",
     "info": {
         "title": "MyProject Trainer",
-        "description": "Esse é um diário de treino onde o atleta irá anotar os dados do seu treino.",
+        "description": "Esse é um diário de treino onde o atleta irá anotar os dados do seu treino",
         "contact": {
             "email": "guilherme1984.araujo@gmail.com"
         },
         "version": "1.0.0"
     },
-    "host": "localhost:3001",
-    "basePath": "/documentation",
-    "schemes": ["http"],
-    "paths": {
-        "/users": {
-            "post": {
-                "summary": "Cadastro de usuário",
-                "description": "Essa rota irá cadastrar usuários.",
-                "tags": ["users"],
-                "consumes": ["application/json"],
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "user",
-                        "description": "Dados do usuário a ser cadastrado.",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/User"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Usuário cadastrado com sucesso."
-                    },
-                    "400": {
-                        "description": "Erro na requisição."
-                    }
-                }
-            }
+    "servers": [
+        {
+            "url": "http://localhost:3001/documentation",
+            "description": "Api de teste"
         }
-    }
+    ]
 }
